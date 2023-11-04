@@ -2,6 +2,14 @@
 import { useEffect } from 'react';
 import useNavbarStore from '@/components/Navbar/useNavbarStore';
 
+function DesktopNav() {
+  return <>Desktop</>;
+}
+
+function MobileNav() {
+  return <>Mobile</>;
+}
+
 export default function Navbar() {
   const { isOpen, isMobile, handleMobile } = useNavbarStore();
 
