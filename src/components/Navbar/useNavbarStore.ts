@@ -1,14 +1,14 @@
 import { create } from 'zustand';
 
 export interface NavState {
-  isOpen: boolean;
+  isOpen: undefined | boolean;
   isMobile: undefined | boolean;
   handleOpen: () => void;
   handleMobile: (navigator: string) => void;
 }
 
 const useNavbarStore = create<NavState>((set, get) => ({
-  isOpen: false,
+  isOpen: undefined,
   isMobile: undefined,
   handleOpen: () => {},
   handleMobile: (navigator) => {
