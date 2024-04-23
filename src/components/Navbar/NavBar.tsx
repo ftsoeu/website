@@ -19,7 +19,7 @@ function MobileNav(props: { links: NavLink[]; isOpen?: boolean }) {
     <>
       <ul className='w-full flex flex-col'>
         {props.links.map((i) => (
-          <li>
+          <li key={i.src}>
             <Link href={i.src}>{i.label}</Link>
           </li>
         ))}
@@ -36,13 +36,13 @@ export default function Navbar() {
 
   const links = navbarData();
 
-  if (navigationBarValidation.safeParse(links).success === false) {
-    return <>Unable to load Navigation bar</>;
-  }
-
   useEffect(() => {
     handleMobile(window.navigator.userAgent);
   }, [isMobile, handleMobile]);
+
+  if (navigationBarValidation.safeParse(links).success === false) {
+    return <>Unable to load Navigation bar</>;
+  }
 
   return (
     <MainWrapper>
