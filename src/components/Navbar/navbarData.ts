@@ -1,6 +1,6 @@
 import type { NavigationBar } from '@/lib/types';
 
-export default () => {
+const navbarData = () => {
   return [
     { label: 'Home', src: '/' },
     { label: 'News', src: '/news' },
@@ -8,3 +8,5 @@ export default () => {
     { label: 'Contact Us', src: '/contact-us' },
   ] as NavigationBar;
 };
+
+export default navbarData;
