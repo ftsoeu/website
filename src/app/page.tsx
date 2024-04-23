@@ -1,11 +1,9 @@
-//import Image from "next/image";
-
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Navbar/NavBar';
 
 export default function Home() {
   return (
     <>
-      White page + <Navbar />
+      <Navbar />
     </>
   );
 }

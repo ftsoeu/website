@@ -1,13 +1,10 @@
-export type NavLink = {
-  label: undefined | string;
-  url: string;
-  icon: undefined | string;
-};
+import type { NavigationBar } from '@/lib/types';
 
 export default () => {
   return [
-    { label: 'home', url: '/' },
-    { label: 'dapps & tools', url: '/dapps' },
-    { label: 'Contact Us', url: '/contact-us' },
-  ] as NavLink[];
+    { label: 'Home', src: '/' },
+    { label: 'News', src: '/news' },
+    { label: 'dApps & Tools', src: '/dapps' },
+    { label: 'Contact Us', src: '/contact-us' },
+  ] as NavigationBar;
 };
