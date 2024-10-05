@@ -1,3 +1,4 @@
+'use client';
 import navbarData from './navbarData';
 
 export default function MobileList() {
