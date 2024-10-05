@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import useNavbarStore from '@/components/NavBar/useNavbarStore';
 import navbarData from '@/components/NavBar/navbarData';
@@ -8,22 +8,49 @@ import MainWrapper from '@/components/MainWrapper';
 import Logo from '@/components/Icons/Logo';
 
 function DesktopNav(props: { links: NavLink[] }) {
-  return <>Desktop</>;
-}
-
-function MobileNav(props: { links: NavLink[]; isOpen?: boolean }) {
-  if (typeof props.isOpen === undefined) {
-    return <>Menu is loading</>;
-  }
   return (
     <>
-      <ul className='w-full flex flex-col'>
+      <ul className='w-full flex flex-grow justify-end flex-row space-x-6 ml-auto'>
         {props.links.map((i) => (
           <li key={i.src}>
             <Link href={i.src}>{i.label}</Link>
           </li>
         ))}
       </ul>
+    </>
+  );
+}
+
+function MobileNav(props: { links?: NavLink[]; isOpen?: boolean }) {
+  const { isOpen, handleOpen } = useNavbarStore();
+
+  const toggleMenu = () => {
+    handleOpen(!isOpen);
+  };
+
+  if (typeof props.isOpen === undefined) {
+    return <>Menu is loading</>;
+  }
+
+  return (
+    <>
+      <button onClick={toggleMenu} className='text-gray-900 focus:outline-none'>
+        {/* Icona dell'hamburger */}
+        <svg
+          className='w-6 h-6'
+          fill='none'
+          stroke='currentColor'
+          viewBox='0 0 24 24'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            d='M4 6h16M4 12h16M4 18h16'
+          ></path>
+        </svg>
+      </button>
     </>
   );
 }
@@ -45,13 +72,32 @@ export default function Navbar() {
   }
 
   return (
-    <MainWrapper>
-      <Logo />
-      {isMobile ? (
-        <MobileNav links={links} isOpen={isOpen} />
-      ) : (
-        <DesktopNav links={links} />
-      )}
-    </MainWrapper>
+    <>
+      <MainWrapper className='shadow-md'>
+        <></>
+        {isMobile ? (
+          <>
+            <MainWrapper isNavbar={true}>
+              <Logo />
+              <MobileNav />
+            </MainWrapper>
+            {/*{isOpen && (
+              <ul className='w-full flex flex-col'>
+                {links.map((i) => (
+                  <li key={i.src}>
+                    <Link href={i.src}>{i.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            )}*/}
+          </>
+        ) : (
+          <MainWrapper isNavbar={true}>
+            <Logo />
+            <DesktopNav links={links} />
+          </MainWrapper>
+        )}
+      </MainWrapper>
+    </>
   );
 }
