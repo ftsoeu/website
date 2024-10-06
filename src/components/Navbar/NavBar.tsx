@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
-import useNavbarStore from '@/components/NavBar/useNavbarStore';
-import navbarData from '@/components/NavBar/navbarData';
+import useNavbarStore from '@/components/Navbar/useNavbarStore';
+import navbarData from '@/components/Navbar/navbarData';
 import { navigationBarValidation, NavLink } from '@/lib/types';
 import MainWrapper from '@/components/MainWrapper';
 import Logo from '@/components/Icons/Logo';

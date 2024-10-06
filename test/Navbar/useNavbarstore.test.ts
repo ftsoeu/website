@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import useNavbarStore from '@/components/NavBar/useNavbarStore';
+import useNavbarStore from '@/components/Navbar/useNavbarStore';
 
 describe('Test useNavbarStore', () => {
   test('It should have isOpen false', () => {

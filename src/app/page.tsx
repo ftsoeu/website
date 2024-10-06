@@ -1,5 +1,5 @@
-import NavBar from '@/components/NavBar/NavBar';
-import MobileList from '@/components/NavBar/MobileList';
+import NavBar from '@/components/Navbar/NavBar';
+import MobileList from '@/components/Navbar/MobileList';
 
 export default function Home() {
   return (

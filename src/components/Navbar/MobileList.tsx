@@ -1,7 +1,7 @@
 'use client';
 
-import navbarData from './navbarData';
-import useNavbarStore from './useNavbarStore';
+import navbarData from '@/components/Navbar/navbarData';
+import useNavbarStore from '@/components/Navbar/useNavbarStore';
 
 export default function MobileList() {
   const { isOpen } = useNavbarStore();
