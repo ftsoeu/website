@@ -56,7 +56,7 @@ function MobileNav(props: { links?: NavLink[]; isOpen?: boolean }) {
   );
 }
 
-export default function Navbar() {
+export default function NavBar() {
   const { isOpen, isMobile, handleMobile } = useNavbarStore();
 
   const isOpenState = isOpen ? `It's open` : `It's closed`;
