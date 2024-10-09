@@ -82,15 +82,6 @@ export default function NavBar() {
               <Logo />
               <MobileNav />
             </MainWrapper>
-            {/*{isOpen && (
-              <ul className='w-full flex flex-col'>
-                {links.map((i) => (
-                  <li key={i.src}>
-                    <Link href={i.src}>{i.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            )}*/}
           </>
         ) : (
           <MainWrapper isNavbar={true}>
