@@ -7,6 +7,8 @@ import navbarData from '@/components/Navbar/navbarData';
 import { navigationBarValidation, NavLink } from '@/lib/types';
 import MainWrapper from '@/components/MainWrapper';
 import Logo from '@/components/Icons/Logo';
+import ButtonBar from './ButtonBar';
+import { TypeIcons } from '@/lib/icons';
 
 function DesktopNav(props: { links: NavLink[] }) {
   return (
@@ -14,7 +16,7 @@ function DesktopNav(props: { links: NavLink[] }) {
       <ul className='w-full flex flex-grow justify-end flex-row space-x-6 ml-auto'>
         {props.links.map((i) => (
           <li key={i.src}>
-            <Link href={i.src}>{i.label}</Link>
+            <ButtonBar src={i.src} label={i.label} icon={i.icon as TypeIcons} />
           </li>
         ))}
       </ul>
@@ -74,7 +76,7 @@ export default function NavBar() {
 
   return (
     <>
-      <MainWrapper className='shadow-md'>
+      <MainWrapper className='shadow-md bg-white'>
         <></>
         {isMobile ? (
           <>
@@ -82,15 +84,6 @@ export default function NavBar() {
               <Logo />
               <MobileNav />
             </MainWrapper>
-            {/*{isOpen && (
-              <ul className='w-full flex flex-col'>
-                {links.map((i) => (
-                  <li key={i.src}>
-                    <Link href={i.src}>{i.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            )}*/}
           </>
         ) : (
           <MainWrapper isNavbar={true}>
