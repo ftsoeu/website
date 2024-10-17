@@ -3,11 +3,7 @@ import { z } from 'zod';
 export const navigationLinkValidation = z.object({
   label: z.string().min(1),
   src: z.string().min(1),
-  icon: z
-    .object({
-      path: z.string().min(1),
-    })
-    .optional(),
+  icon: z.string().optional(),
 });
 
 export const navigationBarValidation = z.array(navigationLinkValidation);
