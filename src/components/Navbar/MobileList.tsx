@@ -10,7 +10,10 @@ export default function MobileList() {
   return (
     <>
       {isOpen && (
-        <ul className='w-full flex flex-col'>
+        <ul
+          className='absolute z-40 bg-[rgb(255,255,255)] overflow-hidden right-0  left-0 bottom-0 flex flex-col'
+          style={{ top: '78px' }}
+        >
           {list.map((i) => (
             <li
               className='w-full p-4 flex items-center justify-center'
