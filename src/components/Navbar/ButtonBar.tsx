@@ -22,10 +22,12 @@ export default function ButtonBar(props: {
   return (
     <Link
       href={props.src}
-      className='p-2 flex flex-row items-center hover:bg-primary hover:text-white'
+      className='p-2 flex flex-row rounded-sm  items-center hover:bg-primary hover:text-[#ffffff] hover:dark:text-white'
     >
       {icon}
-      <div className='font-thin ml-2 pt-1'>{props.label.toUpperCase()}</div>
+      <div className='font-thin ml-2 pt-1 text-sm'>
+        {props.label.toUpperCase()}
+      </div>
     </Link>
   );
 }

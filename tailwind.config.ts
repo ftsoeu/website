@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config = {
-  darkMode: ['class'],
+  darkMode: 'class',
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -16,6 +16,15 @@ const config = {
       screens: {
         '2xl': '1400px',
       },
+    },
+    colors: {
+      primary: '#003399',
+    },
+    fontSize: {
+      sm: ['14px', '20px'],
+      base: ['16px', '24px'],
+      lg: ['20px', '28px'],
+      xl: ['24px', '32px'],
     },
     extend: {
       colors: {
@@ -57,6 +66,9 @@ const config = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      backgroundImage: {
+        'hero-pattern': "url('/images/background-01.png')",
       },
       keyframes: {
         'accordion-down': {

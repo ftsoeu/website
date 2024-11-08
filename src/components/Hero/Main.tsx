@@ -1,6 +1,8 @@
 import heroData from '@/components/Hero/heroData';
-import MainWrapper from '@/components/MainWrapper';
 import CanvasWrapper from '@/components/Hero/CanvasWrapper';
+import CallToAction from '../CallToAction/CallToAction';
+import ReactHtmlParser from 'react-html-parser';
+
 const hero = heroData();
 
 export default function Main(props: { canvas?: boolean }) {
@@ -10,9 +12,30 @@ export default function Main(props: { canvas?: boolean }) {
       {isCanvas ? (
         <CanvasWrapper>hi world</CanvasWrapper>
       ) : (
-        <div className='w-full h-screen bg-slate-700 bg-opacity-100 p-0 mx-auto'>
-          <div className='container text-slate-300'>
-            hero main: {hero.title}
+        <div
+          className='w-full h-screen overflow-hidden bg-hero-pattern bg-cover bg-center bg-opacity-100 p-0 mx-auto'
+          style={{ height: 'calc(100vh - 78px)' }}
+        >
+          <div className='container h-full  text-slate-300'>
+            <div className='flex w-full my-50 h-full flex-col lg:flex-row items-stretch justify-between'>
+              <div className='my-auto mt-10 text-wrap backdrop-blur-xl p-10 pt-5 rounded-2xl shadow-md lg:mt-auto lg:mx-auto lg:basis-2/3 lg:max-w-[70%] flex-grow'>
+                <h1
+                  className='text-[32px] text-wrap text-[#ddf]'
+                  style={{ textShadow: '1px 1px 2px black' }}
+                >
+                  {ReactHtmlParser(hero.title)}
+                </h1>
+                <h2
+                  className='text-[22px] text-[#ddf] text-justify font-thin'
+                  style={{ textShadow: '1px 1px 1px black' }}
+                >
+                  {ReactHtmlParser(hero.description)}
+                </h2>
+              </div>
+              <div className='flex justify-center items-center w-auto grow-0 my-auto basis-2/3 lg:m-auto'>
+                <CallToAction action={hero.callToAction?.label} />
+              </div>
+            </div>
           </div>
         </div>
       )}
