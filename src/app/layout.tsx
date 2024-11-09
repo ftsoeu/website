@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google';
 import './globals.css';
 import NavBar from '@/components/Navbar/NavBar';
 import MobileList from '@/components/Navbar/MobileList';
+import Footer from '@/components/Footer/Footer';
 
 const inter = Roboto({ weight: '400', subsets: ['latin'] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           <NavBar />
           <MobileList />
           {children}
+          <Footer />
         </div>
       </body>
       {isVisible && <script src='https://unpkg.com/spacingjs' defer></script>}
