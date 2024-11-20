@@ -12,8 +12,6 @@ export default function ButtonBar(props: {
   icon?: string;
 }) {
   let icon = <></>;
-  console.log(props.icon);
-  console.log(Icons);
   icon = props.icon == Icons.home ? <HomeIcon /> : icon;
   icon = props.icon == Icons.news ? <NewsIcon /> : icon;
   icon = props.icon == Icons.dapps ? <DappsIcon /> : icon;
