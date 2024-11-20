@@ -1,8 +1,6 @@
 'use client';
-import type { Crumb } from '@/lib/types';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
 
 export default function Breadcrumb() {
   let path = usePathname().replace('/', '');
