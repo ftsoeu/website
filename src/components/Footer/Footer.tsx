@@ -1,11 +1,12 @@
 'use client';
 import Link from 'next/link';
-import MainWrapper from '../MainWrapper';
+import MainWrapper from '@/components/MainWrapper';
 
 import useNavbarStore from '@/components/Navbar/useNavbarStore';
+import Social from '@/components/Social/Social';
 
 export default function Footer() {
-  const { isMobile, handleMobile } = useNavbarStore();
+  const { isMobile } = useNavbarStore();
 
   return (
     <MainWrapper>
@@ -17,7 +18,9 @@ export default function Footer() {
           {isMobile && '© 2024 FTSO.eu'}
           {!isMobile && '© 2024 FTSO.eu. All rights reserved.'}
         </div>
-        <div>social</div>
+        <div>
+          <Social />
+        </div>
       </MainWrapper>
     </MainWrapper>
   );
