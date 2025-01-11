@@ -1,8 +1,67 @@
-version: '3.9'
+
 services:
+
+  proxy:
+    image: nginx:latest
+    container_name: ftsoproxy
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/nginx/certs
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - ftsoweb
+    depends_on:
+      - frontend
+      - directus
+
   frontend:
+    profiles:
+      - dev
     container_name: ftso-website
+    volumes:
+      - ./:/ftso/webapp
+      - /ftso/webapp/node_modules
+    stdin_open: true
     tty: true
     image: ftso-website
     ports: 
-      - '3000:3000'
+      - 3000:3000
+    networks:
+      - ftsoweb
+  
+  directus:
+    profiles:
+      - dev
+    image: directus/directus:11.2.1
+    container_name: ftso-directus
+    ports:
+      - 8055:8055
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    environment:
+      
+      PUBLIC_URL: 'http://localhost:8055'
+      HOST: "0.0.0.0"
+      SECRET: "YZqlxgACzwTYl5s1KWDFnKCt72"
+      ADMIN_EMAIL: "gt@giorgiotedesco.it"
+      ADMIN_PASSWORD: "JNBXKrEA7BTzsHw"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      WEBSOCKETS_ENABLED: "true"
+      CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "https://next.ftso.local/"
+      #PUBLIC_CORS_ENABLED: "true"
+      #PUBLIC_CORS_ORIGIN: "http://localhost:3000"
+      #PUBLIC_SECURITY_HEADERS_CONTENT_SECURITY_POLICY: "child-src 'self' blob: http://localhost:3000"
+      #PUBLIC_SECURITY_HEADERS_CONTENT_SECURITY_POLICY: "frame-src 'self' http://localhost:3000; child-src 'self' blob: http://localhost:3000;"
+      #FRAME_OPTIONS: 'ALLOW-FROM http://localhost:3000'
+      #CONTENT_SECURITY_POLICY: "frame-ancestors 'self' http://localhost:3000;"
+    networks:
+      - ftsoweb
+
+networks:
+  ftsoweb:
+    driver: bridge
