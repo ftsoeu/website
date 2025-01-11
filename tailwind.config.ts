@@ -17,9 +17,6 @@ const config = {
         '2xl': '1400px',
       },
     },
-    colors: {
-      primary: '#003399',
-    },
     fontSize: {
       sm: ['14px', '20px'],
       base: ['16px', '24px'],
@@ -69,6 +66,7 @@ const config = {
       },
       backgroundImage: {
         'hero-pattern': "url('/images/background-01.png')",
+        'hero-pattern-news': "url('/images/background-01.png')",
       },
       keyframes: {
         'accordion-down': {

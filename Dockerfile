@@ -4,18 +4,20 @@ RUN mkdir -p /ftso/webapp
 
 WORKDIR /ftso/webapp
 
-COPY package.json ./
+#COPY package.json ./
 
-COPY src ./src
+COPY . .
+
+COPY /certs /etc/nginx/certs
 
 RUN yarn install
 
-COPY tsconfig.json tsconfig.spec.json next.config.js tailwind.config.ts  ./
+#COPY tsconfig.json tsconfig.spec.json next.config.js tailwind.config.ts  ./
 
-RUN yarn build
+#RUN yarn build
 
-COPY .next ./out
+#COPY .next ./out
 
 EXPOSE 3000
-
-CMD ["npx", "serve", "out"]
+CMD ["yarn", "dev"]
+#CMD ["npx", "serve", "out"]
