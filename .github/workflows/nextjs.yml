@@ -85,6 +85,8 @@ jobs:
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_REPO_NAME: ${{ env.NO_CNAME == 'true' && env.REPO_NAME || '' }}
+          DIRECTUS_URL: ${{ env.DIRECTUS_URL }}
+          NEXT_PUBLIC_DIRECTUS_URL: ${{ env.NEXT_PUBLIC_DIRECTUS_URL }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
