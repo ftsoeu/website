@@ -21,7 +21,7 @@ export async function generateStaticParams() {
   console.log(pages);
   console.log(directus);
   return pages.map((page) => ({
-    slug: page.slug,
+    slug: page.id,
   }));
 }
 
