@@ -22,7 +22,7 @@ export default async function Page({ params }: any) {
         <div className='grid w-full grid-cols-4 gap-4'>
           {publishedPages.map((p) => {
             return (
-              <div>
+              <div key={p.id}>
                 <Link href={`/news/${p.id}`}>{p.title}</Link>
               </div>
             );
