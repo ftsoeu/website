@@ -1,24 +1,28 @@
 import Markdown from 'react-markdown';
 import ReadLayout from '@/app/single-page-layout/layout';
-import remarkGfm from 'remark-gfm';
-import { redirect } from 'next/navigation';
+
+import { notFound } from 'next/navigation';
 
 import { draftMode } from 'next/headers';
 import directus from '@/lib/directus';
 import { readItem } from '@directus/sdk';
 
+export const dynamic = 'force-dynamic';
 interface PageProps {
   params: {
     id: string;
   };
 }
 
+export async function generateStaticParams() {
+  return [];
+}
+
 export default async function Page({ params }: PageProps) {
-  console.log('here');
   const draft = await draftMode();
 
   if (process.env.NODE_ENV !== 'development') {
-    redirect('/');
+    return notFound();
   }
 
   const id = (await params).id;
@@ -31,5 +35,3 @@ export default async function Page({ params }: PageProps) {
     </ReadLayout>
   );
 }
-
-export const dynamic = 'force-dynamic';

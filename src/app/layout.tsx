@@ -20,16 +20,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const nonce = headers().get('X-NONCE');
-
   return (
     <html lang='en'>
-      <head>
-        {/*<meta
-          httpEquiv='Content-Security-Policy'
-          content={`default-src 'self' 'nonce-${nonce}'; style-src 'self' 'nonce-${nonce}'; script-src 'self' 'nonce-${nonce}' https://next.ftso.local https://directus.ftso.local https://webdata.ftso.eu;`}
-        />*/}
-      </head>
+      <head></head>
       <body className={inter.className}>
         <div className='absolute w-full h-full'>
           <NavBar />

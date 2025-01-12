@@ -16,7 +16,6 @@ const data = {
     Fell free to clear your Cookie Consent vie Browser's settings. To save your preference and your consent we use Technical Cookies (named as "CookieConsent").`,
 };
 
-export default {
-  ...data,
-  body: cleanIndentation(data.body),
-};
+data.body = cleanIndentation(data.body);
+
+export default data;
