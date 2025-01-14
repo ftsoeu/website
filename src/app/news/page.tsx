@@ -7,6 +7,10 @@ import Link from 'next/link';
 export const dynamic = 'force-static';
 
 export default async function Page({ params }: any) {
+  console.log('Generating Article Listing');
+  console.log('Called protected url: ', process.env.DIRECTUS_URL);
+  console.log('Called next public url: ', process.env.NEXT_PUBLIC_DIRECTUS_URL);
+
   const pages = await directus.request(
     readItems('Articles', {
       fields: ['*'],
