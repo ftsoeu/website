@@ -29,8 +29,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DIRECTUS_URL: $DIRECTUS_URL
-      NEXT_PUBLIC_DIRECTUS_URL: $NEXT_PUBLIC_DIRECTUS_URL
+      DIRECTUS_URL: https://webdata.ftso.eu
+      NEXT_PUBLIC_DIRECTUS_URL: https://webdata.ftso.eu
       NODE_ENV: production
     steps:
       - name: Checkout
