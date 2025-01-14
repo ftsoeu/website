@@ -80,7 +80,9 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Forcing other libraries install
-        run: yarn add dotenv autoprefixer ts-jest react-html-parser
+        run: yarn add dotenv autoprefixer ts-jest
+      - name: Forcing other dev libraries install
+        run: yarn add --dev react-html-parser
       - name: Check for CNAME
         id: check-cname
         run: |
