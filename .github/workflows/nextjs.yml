@@ -82,7 +82,7 @@ jobs:
       - name: Forcing other libraries install
         run: yarn add autoprefixer
       - name: Forcing other dev libraries install
-        run: yarn add --dev dotenv autoprefixer ts-jest react-html-parser eslint
+        run: yarn add --dev dotenv autoprefixer ts-jest react-html-parser eslint @types/react-html-parser
       - name: Check for CNAME
         id: check-cname
         run: |
