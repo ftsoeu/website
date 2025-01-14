@@ -1,7 +1,7 @@
 import heroData from '@/components/Hero/heroData';
 import CanvasWrapper from '@/components/Hero/CanvasWrapper';
 import CallToAction from '../CallToAction/CallToAction';
-import ReactHtmlParser from 'react-html-parser';
+import parse from 'html-react-parser';
 
 const hero = heroData();
 
@@ -23,13 +23,13 @@ export default function Main(props: { canvas?: boolean }) {
                   className='text-[32px] text-wrap text-[#ddf]'
                   style={{ textShadow: '1px 1px 2px black' }}
                 >
-                  {ReactHtmlParser(hero.title)}
+                  {parse(hero.title)}
                 </h1>
                 <h2
                   className='text-[22px] text-[#ddf] text-justify font-thin'
                   style={{ textShadow: '1px 1px 1px black' }}
                 >
-                  {ReactHtmlParser(hero.description)}
+                  {parse(hero.title)}
                 </h2>
               </div>
               <div className='flex justify-center items-center w-auto grow-0 my-auto basis-2/3 lg:m-auto'>

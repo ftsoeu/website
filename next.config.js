@@ -35,7 +35,7 @@ const cspHeader = `
   .trim();
 
 let data = {
-  output: 'export',
+  output: 'standalone',
   distDir: 'out',
 };
 
@@ -52,6 +52,18 @@ const nextConfig = {
     NO_CNAME: 'true',
     NEXT_PUBLIC_DIRECTUS_URL: env.NEXT_PUBLIC_DIRECTUS_URL,
     DIRECTUS_URL: env.DIRECTUS_URL,
+  },
+  experimental: {
+    appDir: true, // Assicurati che il sistema /app sia abilitato
+  },
+  async redirects() {
+    return [
+      {
+        source: '/draft/:path*',
+        destination: '/',
+        permanent: false,
+      },
+    ];
   },
   async headers() {
     return [

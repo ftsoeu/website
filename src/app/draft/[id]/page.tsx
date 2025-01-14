@@ -7,7 +7,7 @@ import { draftMode } from 'next/headers';
 import directus from '@/lib/directus';
 import { readItem } from '@directus/sdk';
 
-export const dynamic = 'force-dynamic';
+//export const dynamic = 'force-dynamic';
 interface PageProps {
   params: {
     id: string;
