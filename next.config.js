@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-require('dotenv').config;
+require('dotenv').config();
 const isDev = process.env.NODE_ENV === 'development';
 const path = require('path');
 const { env } = require('process');
