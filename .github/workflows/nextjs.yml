@@ -82,11 +82,15 @@ jobs:
             echo "NO_CNAME=true" >> $GITHUB_ENV
           fi
 
+      - name: Debug Environment
+        run: |
+          echo "DIRECTUS_URL: $DIRECTUS_URL"
+          echo "NEXT_PUBLIC_DIRECTUS_URL: $NEXT_PUBLIC_DIRECTUS_URL"
       - name: Build with Next.js
         env:
           #NEXT_PUBLIC_REPO_NAME: ${{ env.NO_CNAME == 'true' && env.REPO_NAME || '' }}
-          DIRECTUS_URL: ${{ env.DIRECTUS_URL }}
-          NEXT_PUBLIC_DIRECTUS_URL: ${{ env.NEXT_PUBLIC_DIRECTUS_URL }}
+          DIRECTUS_URL: $DIRECTUS_URL
+          NEXT_PUBLIC_DIRECTUS_URL: $NEXT_PUBLIC_DIRECTUS_URL
           NODE_ENV: production
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
