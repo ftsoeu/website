@@ -49,8 +49,9 @@ const nextConfig = {
   crossOrigin: 'anonymous',
   compress: false,
   env: {
-    NEXT_PUBLIC_DIRECTUS_URL: process.env.NEXT_PUBLIC_DIRECTUS_URL,
-    DIRECTUS_URL: process.env.DIRECTUS_URL,
+    NO_CNAME: 'true',
+    NEXT_PUBLIC_DIRECTUS_URL: env.NEXT_PUBLIC_DIRECTUS_URL,
+    DIRECTUS_URL: env.DIRECTUS_URL,
   },
   async headers() {
     return [
