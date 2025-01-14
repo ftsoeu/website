@@ -79,6 +79,8 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Forcing dotenv install
+        run: yarn add dotenv
       - name: Check for CNAME
         id: check-cname
         run: |
