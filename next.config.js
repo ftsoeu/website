@@ -2,6 +2,7 @@
 require('dotenv').config;
 const isDev = process.env.NODE_ENV === 'development';
 const path = require('path');
+const { env } = require('process');
 const lhost =
   'https://next.ftso.local https://directus.ftso.local https://webdata.ftso.eu'; // backend
 // Definizione dell'header Content-Security-Policy
@@ -47,6 +48,10 @@ const nextConfig = {
   ...data,
   crossOrigin: 'anonymous',
   compress: false,
+  env: {
+    NEXT_PUBLIC_DIRECTUS_URL: process.env.NEXT_PUBLIC_DIRECTUS_URL,
+    DIRECTUS_URL: process.env.DIRECTUS_URL,
+  },
   async headers() {
     return [
       {
