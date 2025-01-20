@@ -35,14 +35,39 @@ const cspHeader = `
   .trim();
 
 let data = {
-  output: 'standalone',
+  output: 'export',
   distDir: 'out',
+  trailingSlash: true,
+  /*exportPathMap: async function exportPathMap() {
+    return {
+      '/draft': { page: '/draft' }, // Esporta solo /draft
+      // Non includere /draft/[id]
+    };
+  },*/
 };
+
+let redirectForProd = {
+  source: '/draft/:path*',
+  destination: '/',
+  permanent: false,
+};
+
+let redirects = async function redirects() {
+  if (isDev) {
+    return [];
+  }
+  return [redirectForProd];
+};
+
+console.log('isDev?', isDev);
 
 // Configurazione per ambiente di sviluppo
 if (isDev) {
   data = {};
+  redirectForProd = null;
 }
+
+console.log('isDev?', data);
 
 const nextConfig = {
   ...data,
@@ -53,18 +78,7 @@ const nextConfig = {
     NEXT_PUBLIC_DIRECTUS_URL: env.NEXT_PUBLIC_DIRECTUS_URL,
     DIRECTUS_URL: env.DIRECTUS_URL,
   },
-  experimental: {
-    appDir: true, // Assicurati che il sistema /app sia abilitato
-  },
-  async redirects() {
-    return [
-      {
-        source: '/draft/:path*',
-        destination: '/',
-        permanent: false,
-      },
-    ];
-  },
+  redirects,
   async headers() {
     return [
       {

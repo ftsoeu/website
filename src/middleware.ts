@@ -6,7 +6,6 @@ export function middleware(req: NextRequest) {
 
   const nonce = Buffer.from(Math.random().toString()).toString('base64');
   const response = NextResponse.next();
-  console.log('nonce:', nonce);
   response.headers.set(
     'Content-Security-Policy',
     `default-src 'self'; script-src 'self' 'nonce-${nonce}' https://directus.ftso.local https://webdata.ftso.eu;`
