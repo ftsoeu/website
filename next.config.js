@@ -71,6 +71,15 @@ console.log('isDev?', data);
 
 const nextConfig = {
   ...data,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'webdata.ftso.eu',
+        pathname: '/assets/**',
+      },
+    ],
+  },
   crossOrigin: 'anonymous',
   compress: false,
   env: {

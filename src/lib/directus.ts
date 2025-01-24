@@ -15,9 +15,9 @@ type Page = {
   slug: string;
 };
 
-type Article = {
+export type Article = {
   id: string;
-  image: string;
+  cover: string;
   title: string;
   author: Author;
   content: string;
