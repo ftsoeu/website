@@ -72,7 +72,7 @@ console.log('isDev?', data);
 const nextConfig = {
   ...data,
   images: {
-    unoptimized: true,
+    //unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
