@@ -27,7 +27,7 @@ export default async function Page({ params }: any) {
           {publishedPages.map((p) => {
             return (
               <>
-                <Article data={p} />
+                <Article key={p.id} data={p} />
               </>
             );
           })}
