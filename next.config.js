@@ -24,7 +24,8 @@ const lhost =
   .trim();*/
 
 const cspHeader = `
-  default-src 'self' https://next.ftso.local https://directus.ftso.local https://webdata.ftso.eu; 
+  default-src 'self' https://next.ftso.local https://directus.ftso.local https://webdata.ftso.eu;
+  img-src 'self' https://webdata.ftso.eu data: blob: *;  
   frame-src 'self' https://next.ftso.local https://directus.ftso.local https://next.ftso.local https://webdata.ftso.eu; 
   child-src 'self' blob:; 
   frame-ancestors 'self' https://next.ftso.local https://directus.ftso.local https://webdata.ftso.eu;
@@ -72,7 +73,7 @@ console.log('isDev?', data);
 const nextConfig = {
   ...data,
   images: {
-    //unoptimized: true,
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

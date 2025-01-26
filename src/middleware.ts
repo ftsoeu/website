@@ -8,7 +8,7 @@ export function middleware(req: NextRequest) {
   const response = NextResponse.next();
   response.headers.set(
     'Content-Security-Policy',
-    `default-src 'self'; script-src 'self' 'nonce-${nonce}' https://directus.ftso.local https://webdata.ftso.eu;`
+    `default-src 'self'; script-src 'self' 'nonce-${nonce}' https://directus.ftso.local https://webdata.ftso.eu; img-src 'self' https://webdata.ftso.eu;`
   );
 
   response.headers.set('X-NONCE', nonce);

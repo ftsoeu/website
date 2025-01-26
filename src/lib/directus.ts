@@ -1,4 +1,5 @@
 import { createDirectus, rest, staticToken } from '@directus/sdk';
+import { ImageLoader } from 'next/image';
 
 type Global = {
   title: string;
@@ -37,5 +38,11 @@ const directus = createDirectus<Schema>(
 )
   //.with(staticToken('d9coHNyZLTbAUQJ2LbTm7oOOmUTPteKg'))
   .with(rest());
+
+export const directusLoader: ImageLoader = ({ src, width, quality }) => {
+  return `${
+    process.env.NEXT_PUBLIC_DIRECTUS_URL
+  }/assets/${src}?width=${width}&quality=${quality || 75}`;
+};
 
 export default directus;
