@@ -4,7 +4,7 @@ import directus from '@/lib/directus';
 import { readItems } from '@directus/sdk';
 import Article from '@/components/Card/Article';
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 
 export default async function Page({ params }: any) {
   console.log('Generating Article Listing');
