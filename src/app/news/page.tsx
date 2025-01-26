@@ -4,20 +4,20 @@ import directus from '@/lib/directus';
 import { readItems } from '@directus/sdk';
 import Article from '@/components/Card/Article';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
-export default async function Page({ params }: any) {
-  console.log('Generating Article Listing');
-  console.log('Called protected url: ', process.env.DIRECTUS_URL);
-  console.log('Called next public url: ', process.env.NEXT_PUBLIC_DIRECTUS_URL);
-
+async function getNews() {
   const pages = await directus.request(
     readItems('Articles', {
       fields: ['*'],
     })
   );
 
-  const publishedPages = pages.filter((item) => item.status === 'published');
+  return pages.filter((item) => item.status === 'published');
+}
+
+export default async function Page({ params }: any) {
+  const publishedPages = await getNews();
 
   return (
     <>
