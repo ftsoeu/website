@@ -18,6 +18,8 @@ services:
 
   frontend:
     container_name: ftso-website
+    environment:
+      - MODE=prod
     volumes:
       - ./:/ftso/webapp
       - /ftso/webapp/node_modules
