@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
+    "watch": "chokidar 'src/**/*' -c 'yarn build'",
     "docker:build:image": "docker build -t ftso-website .",
     "docker:start": "docker compose up"
   },

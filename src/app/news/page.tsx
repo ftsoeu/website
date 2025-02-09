@@ -12,13 +12,11 @@ async function getNews() {
       fields: ['*'],
     })
   );
-
   return pages.filter((item) => item.status === 'published');
 }
 
 export default async function Page({ params }: any) {
   const publishedPages = await getNews();
-
   return (
     <>
       <Common title='NEWS' />
