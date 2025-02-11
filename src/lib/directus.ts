@@ -27,8 +27,22 @@ export type Article = {
   status: string;
 };
 
+export type CallToAction = {
+  label: string;
+  url: string;
+  shortDescription: string;
+  description: string;
+};
+
+export type Hero = {
+  Title: string;
+  Description: string;
+};
+
 type Schema = {
   Articles: Article[];
+  CallToAction: CallToAction;
+  Hero: Hero;
   //global: Global;
   //pages: Page[];
 };
