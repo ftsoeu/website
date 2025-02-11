@@ -1,12 +1,14 @@
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 import CallToAction from '@/components/CallToAction/CallToAction';
 import { ReactNode } from 'react';
+import heroData from '@/components/Hero/heroData';
 
 interface ReadLayoutProps {
   children: ReactNode;
 }
 
-export default function ReadLayout({ children }: ReadLayoutProps) {
+export default async function ReadLayout({ children }: ReadLayoutProps) {
+  const hero = await heroData();
   return (
     <>
       <Breadcrumb />
@@ -16,7 +18,10 @@ export default function ReadLayout({ children }: ReadLayoutProps) {
             {children}
           </article>
           <div className='basis-1/3'>
-            <CallToAction action={'Delegate with us'} />
+            <CallToAction
+              label={hero.callToAction.label}
+              url={hero.callToAction.url}
+            />
           </div>
         </div>
       </div>

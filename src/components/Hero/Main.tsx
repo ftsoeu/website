@@ -32,7 +32,10 @@ export default async function Main(props: { canvas?: boolean }) {
                 </h2>
               </div>
               <div className='flex justify-center items-center w-auto grow-0 my-auto basis-2/3 lg:m-auto'>
-                <CallToAction action={hero.callToAction?.label} />
+                <CallToAction
+                  label={hero.callToAction?.label}
+                  url={hero.callToAction?.url}
+                />
               </div>
             </div>
           </div>

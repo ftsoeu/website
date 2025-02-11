@@ -20,7 +20,7 @@ const heroData = async () => {
     description: hero.Description || 'We are a Flare Infrastructure Provider',
     callToAction: {
       label: cta.label,
-      action: cta.url,
+      url: cta.url,
     },
   };
 };
