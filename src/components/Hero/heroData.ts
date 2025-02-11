@@ -1,12 +1,26 @@
 import { Hero } from '@/lib/types';
+import directus from '@/lib/directus';
+import { readSingleton } from '@directus/sdk';
 
-const heroData: () => Hero = () => {
+const getCallToAction = async () => {
+  const cta = await directus.request(readSingleton('CallToAction'));
+  return cta;
+};
+
+const getHero = async () => {
+  const hero = await directus.request(readSingleton('Hero'));
+  return hero;
+};
+
+const heroData = async () => {
+  const hero = await getHero();
+  const cta = await getCallToAction();
   return {
-    title: 'We partecipate at the <br />Flare Time Series Oracle',
-    description: 'We are a Flare Infrastructure Provider',
+    title: hero.Title || 'We partecipate at the <br />Flare Time Series Oracle',
+    description: hero.Description || 'We are a Flare Infrastructure Provider',
     callToAction: {
-      label: 'Delegate with us',
-      action: '/sample-to-call',
+      label: cta.label,
+      action: cta.url,
     },
   };
 };
