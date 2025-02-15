@@ -23,6 +23,17 @@ const config = {
       lg: ['20px', '28px'],
       xl: ['24px', '32px'],
     },
+    fontWeight: {
+      ultralight: '100',
+      light: '300',
+      normal: '400',
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+    },
+    fontFamily: {
+      sans: ['Inter', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'], // Definito direttamente nel tema
+    },
     extend: {
       colors: {
         border: 'hsl(var(--border))',
