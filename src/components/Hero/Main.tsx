@@ -45,8 +45,8 @@ export default async function Main(props: { canvas?: boolean }) {
           <div>
             <div className='p-12 text-center'>
               <p className='text-lg'>
-                We are a European based Signal Service Provider on the Flare
-                Network.
+                We are a European based Signal Infrastructure Provider on the
+                Flare Network.
               </p>
               <p className='text-md text-gray-600 mt-2'>
                 We collect latest price ticker from multiple data sources
@@ -59,9 +59,9 @@ export default async function Main(props: { canvas?: boolean }) {
             <div className='container'>
               <div className='flex flex-wrap justify-between items-center gap-8  text-white py-8'>
                 <div className='p-6 w-full lg:w-80 bg-gradient-to-r from-blue-800 to-blue-700 rounded-2xl'>
-                  <h3 className='text-xl font-bold mb-2'>Earn Spark</h3>
+                  <h3 className='text-xl font-bold mb-2'>Earn FLR</h3>
                   <p className='font-ultralight'>
-                    Earn Spark by your vote&apos;s delegation to us and our
+                    Earn FLR by your vote&apos;s delegation to us and our
                     system. Simply connect your Metamask or any other wallet.
                   </p>
                 </div>
