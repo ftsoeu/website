@@ -39,10 +39,24 @@ export type Hero = {
   Description: string;
 };
 
+export type Banner = {
+  Title: string;
+  Description: string;
+};
+
+export type LandingCard = {
+  Title: string;
+  Description: string;
+  order: number;
+};
+
 type Schema = {
+  global: Global;
   Articles: Article[];
   CallToAction: CallToAction;
   Hero: Hero;
+  Banner: Banner;
+  LandingCards: LandingCard[];
   //global: Global;
   //pages: Page[];
 };
