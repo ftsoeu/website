@@ -2,10 +2,14 @@ import heroData from '@/components/Hero/heroData';
 import CanvasWrapper from '@/components/Hero/CanvasWrapper';
 import CallToAction from '../CallToAction/CallToAction';
 import parse from 'html-react-parser';
+import Banner from '../Banner/Banner';
+import bannerData from '../Banner/bannerData';
+import Blocks from '../Block/Blocks';
 
 export default async function Main(props: { canvas?: boolean }) {
   const isCanvas = props.canvas || false;
   const hero = await heroData();
+  const banner = await bannerData();
   return (
     <>
       {isCanvas ? (
@@ -42,48 +46,9 @@ export default async function Main(props: { canvas?: boolean }) {
             </div>
           </div>
 
-          <div>
-            <div className='p-12 text-center'>
-              <p className='text-lg'>
-                We are a European based Signal Infrastructure Provider on the
-                Flare Network.
-              </p>
-              <p className='text-md text-gray-600 mt-2'>
-                We collect latest price ticker from multiple data sources
-                (exchanges, dex and defi).
-              </p>
-            </div>
-          </div>
+          <Banner title={banner.title} description={banner.description} />
 
-          <div className='w-full text-slate-300 bg-gradient-to-b from-primary to-purple-950 bg-primary'>
-            <div className='container'>
-              <div className='flex flex-wrap justify-between items-center gap-8  text-white py-8'>
-                <div className='p-6 w-full lg:w-80 bg-gradient-to-r from-blue-800 to-blue-700 rounded-2xl'>
-                  <h3 className='text-xl font-bold mb-2'>Earn FLR</h3>
-                  <p className='font-ultralight'>
-                    Earn FLR by your vote&apos;s delegation to us and our
-                    system. Simply connect your Metamask or any other wallet.
-                  </p>
-                </div>
-                <div className='p-6 w-full lg:w-80 bg-gradient-to-r from-blue-800 to-blue-700 rounded-2xl'>
-                  <h3 className='text-xl font-bold mb-2'>Risk Free</h3>
-                  <p className='font-ultralight'>
-                    While you connect with us by your wallet, your Sparks will
-                    be always under your strict control. Your Keys, your Money!
-                  </p>
-                </div>
-                <div className='p-6 w-full lg:w-80 bg-gradient-to-r from-blue-800 to-blue-700 rounded-2xl'>
-                  <h3 className='text-xl font-bold mb-2'>
-                    Fast, Secure and Cheap
-                  </h3>
-                  <p className='font-ultralight'>
-                    Earn Flare by your vote&apos;s delegation to us and our
-                    system. Simply connect your Metamask or any other wallet.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Blocks />
 
           {/*<div className='text-center py-8'>
             <p className='text-lg font-semibold'>
