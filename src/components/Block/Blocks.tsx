@@ -8,7 +8,13 @@ export default async function Blocks() {
       <div className='container'>
         <div className='flex flex-wrap justify-between items-center gap-8  text-white py-8'>
           {data.map((d) => {
-            return <Block title={d.Title} description={d.Description} />;
+            return (
+              <Block
+                key={d.order}
+                title={d.Title}
+                description={d.Description}
+              />
+            );
           })}
         </div>
       </div>
