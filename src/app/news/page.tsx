@@ -21,7 +21,7 @@ export default async function Page({ params }: any) {
     <>
       <Common title='NEWS' />
       <MainWrapper isNavbar>
-        <div className='grid w-full grid-cols-4 gap-4'>
+        <div className='grid w-full grid-cols-1 lg:grid-cols-4 gap-4'>
           {publishedPages.map((p) => {
             return (
               <>
