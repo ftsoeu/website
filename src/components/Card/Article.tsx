@@ -13,7 +13,7 @@ export default function Article(props: { data: Article }) {
         />
       </div>
       <div className=' p-3 pb-5'>
-        <Link href={`/news/${props.data.id}`} className='text-white'>
+        <Link href={`/news/${props.data.slug}`} className='text-white'>
           {props.data.title}
         </Link>
       </div>

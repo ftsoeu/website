@@ -5,7 +5,10 @@ import { usePathname } from 'next/navigation';
 export default function Breadcrumb() {
   let path = usePathname().replace('/', '');
 
-  path = path[0].toUpperCase() + path.slice(1);
+  path = (path[0].toUpperCase() + path.slice(1).replaceAll('-', ' ')).replace(
+    '/',
+    ' > '
+  );
 
   return (
     <>

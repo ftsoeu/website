@@ -8,30 +8,32 @@ import { readItems, readItem } from '@directus/sdk';
 
 interface PageProps {
   params: {
-    id: string;
+    slug: string;
   };
 }
 
 export async function generateStaticParams() {
-  console.log('Generating Single Article');
-  console.log('Called protected url: ', process.env.DIRECTUS_URL);
-  console.log('Called next public url: ', process.env.NEXT_PUBLIC_DIRECTUS_URL);
-
   const pages = await directus.request(
     readItems('Articles', {
       fields: ['*'],
     })
   );
-  console.log(pages);
-  console.log(directus);
+
   return pages.map((page) => ({
-    slug: page.id,
+    slug: page.slug,
   }));
 }
 
-export default async function Page({ params }: any) {
-  const page = await directus.request(readItem('Articles', params.slug));
-  console.log(page);
+export default async function Page({ params }: PageProps) {
+  let pages = await directus.request(
+    readItems('Articles', {
+      fields: ['*'],
+      filter: { slug: { _eq: params.slug } },
+    })
+  );
+
+  const page = pages[0];
+
   return (
     <ReadLayout>
       <Markdown>
