@@ -12,10 +12,11 @@ export default function ButtonBar(props: {
   label: string;
   icon?: string;
 }) {
-  const { isOpen, handleOpen } = useNavbarStore();
-
+  const { isOpen, isMobile, handleOpen } = useNavbarStore();
   const toggleMenu = () => {
-    handleOpen(!isOpen);
+    if (isMobile) {
+      handleOpen(!isOpen);
+    }
   };
 
   let icon = <></>;
