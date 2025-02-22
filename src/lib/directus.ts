@@ -44,6 +44,13 @@ export type Banner = {
   Description: string;
 };
 
+export type Pair = {
+  id: string;
+  Title: string;
+  Description?: string | null;
+  status: string;
+};
+
 export type LandingCard = {
   Title: string;
   Description: string;
@@ -57,8 +64,7 @@ type Schema = {
   Hero: Hero;
   Banner: Banner;
   LandingCards: LandingCard[];
-  //global: Global;
-  //pages: Page[];
+  Pairs: Pair[];
 };
 
 const directus = createDirectus<Schema>(
